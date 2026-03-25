@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Floating Todo</title>
+    <link rel="stylesheet" href="/src/style.css" />
+  </head>
+  <body>
+    <div id="app" class="window glass">
+      <header class="titlebar">
+        <div id="dragBar" class="drag-area">
+          <span class="dot"></span>
+          <span class="title-text">待办悬浮窗</span>
+        </div>
+
+        <div class="title-actions">
+          <button id="minBtn" class="icon-btn" type="button">－</button>
+          <button id="closeBtn" class="icon-btn danger" type="button">×</button>
+        </div>
+      </header>
+
+      <main id="fullPanel" class="panel">
+        <div class="pomodoro-card">
+          <div class="pomodoro-left">
+            <div class="pomodoro-title">番茄钟</div>
+            <div id="timerText" class="timer-text">25:00</div>
+          </div>
+
+        <div class="pomodoro-actions">
+          <input id="timerMinuteInput" class="timer-minute-input" type="number" min="1" max="180" value="25" />
+          <button id="startTimerBtn" class="ghost-btn small-btn" type="button">开始</button>
+          <button id="pauseTimerBtn" class="ghost-btn small-btn" type="button">暂停</button>
+          <button id="resetTimerBtn" class="ghost-btn small-btn" type="button">重置</button>
+        </div>
+        </div>
+
+        <div class="input-row">
+          <input id="todoInput" type="text" placeholder="输入新的待办事项..." />
+          <button id="addBtn" class="primary-btn" type="button">添加</button>
+        </div>
+
+        <div class="toolbar compact-toolbar">
+          <select id="prioritySelect" class="priority-select">
+            <option value="high">高优先级</option>
+            <option value="medium" selected>中优先级</option>
+            <option value="low">低优先级</option>
+          </select>
+
+          <input id="remindTimeInput" class="time-input" type="datetime-local" />
+
+          <button id="clearDoneBtn" class="ghost-btn small-btn" type="button">删已完成</button>
+          <button id="clearAllBtn" class="ghost-btn small-btn" type="button">清空</button>
+        </div>
+
+        <div id="todoList" class="todo-list"></div>
+      </main>
+
+      <section id="compactPanel" class="compact-panel hidden">
+        <button id="expandBtn" class="primary-btn compact-expand" type="button">展开</button>
+      </section>
+    </div>
+
+    <div id="toastContainer" class="toast-container"></div>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
